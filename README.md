@@ -4,11 +4,11 @@ The slides for this course can be viewed [here](http://kcjonesevans.github.io/gd
 
 This is an Intro to Ruby course, Original material by Cheri Allen and Heather Moore. Adapted by K.C. Jones-Evans of the Dayton chapter. 
 
-The course is meant to be taught in 5 two-hour sections. Each of the slides and practice files are customizable according to the needs of a given class or audience.
+The course is meant to be taught in 5 two-hour sections, but KC decided to do 4 three-hour sessions plus ruby installfest. Each of the slides and practice files are customizable according to the needs of a given class or audience.
 
 ## Classes
 
-### Setup (Class 0)
+### Setup (Class 0) aka Ruby Installfest 
 
 Installfest & Intro to Command Line
 
