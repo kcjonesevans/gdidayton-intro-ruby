@@ -34,23 +34,7 @@
               <h4><span class="blue">Class 1</span></h4>
             </div>
           </section>
-          <section>
-              <h3>Welcome!</h3>
-              <!-- <p class="box"><strong>Girl Develop It</strong> is here to empower and assist women interested in getting into and advancing in the tech industry through affordable and accessible programs.</p> -->
-              <p class="box"><strong>Girl Develop It</strong> is here to provide affordable programs for adult women interested in learning web and software development in a judgment-free environment.</p>
-
-              <div class="copy--small">
-                  <h4 class="green">Some "rules"</h4>
-                  <ul>
-                      <li>We are here for you!</li>
-                      <li>Every question is important.</li>
-                      <li>Help each other.</li>
-                      <li><strong>Have fun!</strong></li>
-                  </ul>
-              </div>
-
-              <p class="box copy--small"><small><strong>Girl Develop It is dedicated to providing a harrasment free learning experience for <em>everyone</em>.</strong><br/>For more information, see our <a href="http://www.girldevelopit.com/code-of-conduct" target="_blank">Code of Conduct</a>.</small></p>
-          </section>
+          
           <section>
             <h3>About Me</h3>
             <div class="left" style="margin-right: 40px"><img src="images/kc.jpg" class="img--bare" height="400px" /></div>
@@ -306,7 +290,7 @@
               <li class="fragment">Ruby has variables, constants and literals.</li>
               <li class="fragment">A variables starts with a lower case letter or an underscore character (_) and consists entirely of letters, numbers and underscores.</li>
               <li class="fragment">Constants do not change and are typically in all caps.</li>
-              <li class"fragment">Literals are literal values, for example the number 3 or the string 'hi'</li>
+              <li class="fragment">Literals are literal values, for example the number 3 or the string 'hi'</li>
             </ul>
             
             <pre class="fragment"><code contenteditable class="ruby">
@@ -375,7 +359,7 @@
             name
 
             # defined, initalize, create
-            name = "Heather"
+            name = "KC"
             defined?(name)
             </code></pre>
           </section>
@@ -404,42 +388,6 @@
             irb> [1,2,3].class
             => Array
             </code></pre>
-          </section>
-
-          <section>
-            <h3>Strings</h3>
-            <p class="box--small copy--small">Strings are characters inside double or single quotes.</p>
-            <pre class="fragment"><code contenteditable class="ruby">
-            a = 'Hello '
-            b = "World"
-            c = a + b
-            c.reverse
-            => "dlroW olleH"
-            </code></pre>
-            <pre class="fragment"><code contenteditable class="ruby ">
-            a = "Spam "
-
-            # Here multiplying a by 4 concatenates (links) four strings together
-            b = a * 4
-            =>"Spam Spam Spam Spam "
-            </code></pre>
-          </section>
-
-          <section>
-            <h3>String Practice</h3>
-            <pre><code contenteditable class="ruby">
-            "Heather".upcase
-            "Heather".downcase
-            "heather".capitalize
-            "Hello".reverse
-            "Heather".length
-            "Heather Moore".swapcase
-            "".empty?
-            </code></pre>
-            <p>What is the reverse of your name?</p>
-            <p>How many characters long is your name?</p>
-            <p>Can you repeat the word hello 100 times?</p>
-            <p>What is the 5th character of my name?</p>
           </section>
 
           <section>
@@ -481,6 +429,44 @@
           </section>
 
           <section>
+            <h3>Strings</h3>
+            <p class="box--small copy--small">Strings are characters inside double or single quotes.</p>
+            <pre class="fragment"><code contenteditable class="ruby">
+            a = 'Hello '
+            b = "World"
+            c = a + b
+            c.reverse
+            => "dlroW olleH"
+            </code></pre>
+            <pre class="fragment"><code contenteditable class="ruby ">
+            a = "Spam "
+
+            # Here multiplying a by 4 concatenates (links) four strings together
+            b = a * 4
+            =>"Spam Spam Spam Spam "
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>String Practice</h3>
+            <pre><code contenteditable class="ruby">
+            "Heather".upcase
+            "Heather".downcase
+            "heather".capitalize
+            "Hello".reverse
+            "Heather".length
+            "Heather Moore".swapcase
+            "".empty?
+            </code></pre>
+            <p>What is the reverse of your name?</p>
+            <p>How many characters long is your name?</p>
+            <p>Can you repeat the word hello 100 times?</p>
+            <p>What is the 5th character of my name?</p>
+          </section>
+
+          
+
+          <!--section>
             <h3>Symbols</h3>
             <p class="box--small copy--small fragment">You can think of symbols as lightweight Strings.</p>
             <p class="box--small copy--small fragment">It's good to know these exist, but don't<br/>worry about them too much for now.</p>
@@ -491,9 +477,9 @@
             # permanent and immutable
             :hello
             </code></pre>
-          </section>
+          </section-->
 
-          <section>
+          <!--section>
             <h3>Booleans</h3>
             <p class="box--small copy--small fragment">This is another Object that we will learn about later.</p>
             <p class="box--small copy--small fragment">When you hear Boolean, think TRUE and FALSE.</p>
@@ -510,9 +496,9 @@
             !false
             => true
             </code></pre>
-          </section>
+          </section-->
 
-          <section>
+          <!--section>
             <h3>Arrays, Ranges &amp; Hashes</h3>
             <p class="box--small copy--small fragment">We will also leave these data types for the next class</p>
             <p class="box--small copy--small fragment">Examples of what they will look like:</p>
@@ -535,10 +521,10 @@
               }
             </code></pre>
           </section>
-        </section>
+        </section-->
 
         <!-- Methods -->
-        <section>
+        
           <section>
             <h3>Methods</h3>
             <ul class="list--tall box--small copy--small">
@@ -623,12 +609,21 @@
           </section>
 
           <section>
-            <img src="images/gdi-dayton-logo.png" class="img--bare" height="450px" />
-            <div class="box--small">
-              <h3><span class="green">Intro to Ruby</span></h3>
-              <h4><span class="blue">Class 1</span></h4>
-            </div>
-          </section>
+                <img src="images/gdi-dayton-logo.png" class="img--bare" height="300px" />
+                <div class="box--small">
+                    <h3 class="event__title">Intro to Programming in Ruby</h3>
+                    <p class=""><small>@gdidayton &nbsp; | &nbsp; #GDIDAY3</small></p>
+                    <hr>
+                    <p><small>We are done with class 1!</small></p>
+                    <p><small>We have done a lot, I know you have questions so ask them!</small></p>
+                </div>
+            <p class="copy--small box--small">
+              <a href="setup.html">Setup</a> &nbsp; | &nbsp;
+              <a href="class1.html">Class 1</a> &nbsp; | &nbsp;
+              <a href="class2.html">Class 2</a> &nbsp; | &nbsp;
+              <a href="class3.html">Class 3</a> &nbsp; | &nbsp;
+              <a href="class4.html">Class 4</a>
+            </p>
         </section>
       </div>
       <footer>
