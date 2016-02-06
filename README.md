@@ -1,6 +1,6 @@
 # Intro to Ruby
 
-The slides for this course can be viewed [here](http://kcjonesevans.github.io/gdi-ruby)
+The slides for this course can be viewed [here](http://kcjonesevans.github.io/gdidayton-intro-ruby)
 
 This is an Intro to Ruby course, Original material by Cheri Allen and Heather Moore. Adapted by K.C. Jones-Evans of the Dayton chapter. 
 
