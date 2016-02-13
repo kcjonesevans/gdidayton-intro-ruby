@@ -67,8 +67,9 @@
           <section>
               <h3>Review</h3>
               <ul class="list--xtall box--small">
-                  <li>Arithmetic and variables</li>
-                  <li>Data types</li>
+                  <li>Lots of math</li>
+				  <li>Variables, constants, literals</li>
+                  <li>Data types: Numbers (fixnum), Strings</li>
                   <li>Text editor, command line, and ruby shell</li>
               </ul>
           </section>
@@ -76,13 +77,123 @@
           <section>
               <h3>What we will cover today</h3>
               <ul class="list--xtall box--small copy--small">
-                  <li class ="fragment">Boolean Expressions &amp; Conditionals</li>
-                  <li class ="fragment">Loops</li>
-                  <li class ="fragment">Collections</li>
+				  <li class ="fragment">More things with Strings</li>
+				  <li class ="fragment">Some new data types: Arrays, Booleans, Ranges and Hashes</li>
+                  <li class ="fragment">Controlling the flow of our programs with Conditionals and Loops</li>
               </ul>
           </section>
         </section>
 
+		<!--Strings and arrays-->
+		<section>
+		<section>
+			 <h3>Some more on Strings</h3>
+			 <pre><code contenteditable class="ruby" >
+				new_string = "The quick brown fox"
+				
+				new_string[0]
+				=> "T"
+
+				new_string.split(" ")
+				(irb)>>["The", "quick", "brown","fox"]				
+					
+				["The", "quick", "brown","fox"].join(" ")
+				(irb)>>"The quick brown fox"
+              </code></pre>
+		</section>
+		<section>
+              <h3>Arrays</h3>
+              <p class="copy--small box--small">Arrays have square brackets <code>[]</code> and can be filled with any type of object: fixnum, strings, even other arrays or hashes.</p>
+              <pre><code  class="ruby">
+              new_array = [1, 3, 5, 89, 212, 7, -100]
+              arr = ["wow", "woooo", "zowie"]
+              array = Array.new #will have no elements inside it initially
+              varied_array = ["one", 2, "THREE", 0.4, ["five", 6]]
+
+              # methods to get information about an array
+              new_array.length
+              new_array.count
+              arr.include?("yee ha")
+              </code></pre>
+              <p class="copy--xsmall box--small">Arrays are a great way to keep track of information that changes frequently.</p>
+          </section>
+
+          <section>
+              <h3>Accessing Elements in an Arrays</h3>
+              <p class="copy--small box--small">Arrays are <strong>ordered</strong> and are <strong>integer-indexed</strong>, starting at 0. </p>
+              <p class="copy--small box--small">Elements can be accessed by their position.</p>
+
+              <pre><code  class="ruby">
+              new_array = [1, 3, 5, 89, 212, 7, -100]
+              arr = ["wow", "woooo", "zowie"]
+
+              new_array[0]    # returns the zeroth element
+              arr[2]          # returns the third element
+              arr[-1]         # returns the last (1st from the end) element
+              new_array.last  # returns the last element
+              arr.first       # returns the first element
+              </code></pre>
+          </section>
+
+          <section>
+              <h3>Adding &amp; Deleting From Arrays</h3>
+              <p class="copy--small box--small">Adding and removing items to an array can be done in a variety of ways. These are the most common.</p>
+              <pre><code  class="ruby">
+              arr = ["wow", "woooo", "zowie"]
+
+              #add
+              arr.push("hot diggity") # adds argument as last element
+              arr << "yikes"          # adds argument as last element
+
+              #remove
+              arr.delete("wow")       # deletes the element that matches argument
+              arr.pop                 # removes and returns the last element
+              </code></pre>
+          </section>
+
+          <section>
+              <h3>More Array Methods</h3>
+              <p class="copy--small box--small">Arrays are used a lot in Ruby.<br/>There are a lot of cool methods available for them. </p>
+              <pre><code  class="ruby">
+              arr = ["dog", "cat", "turtle", "parakeet", "ferret"]
+
+              arr.index("dog")    # returns the index of the element that matches argument
+              arr.join            # returns a string made up of all the elements
+              arr.clear           # removes all elements from the array
+              arr.reverse         # returns new array with same elements, reversed
+              arr.shuffle         # returns new array with same elements, shuffled
+              arr.uniq            # returns a new array with only unique elements
+              arr.size            # returns the number of elements in the array
+              arr.empty?          # returns a boolean
+              arr.include?("dog") # returns a boolean
+              </code></pre>
+              <p class="copy--xsmall box--small">Learn more about arrays <a href="http://www.ruby-doc.org/core-2.1.0/Array.html" alt="ruby documentation - array class">here</a>.</p>
+          </section>
+		  
+		  <section>
+              <h3>Let's Develop It</h3>
+              <p class="copy--small box">Set up an array to hold the following values, and in this order: </br>23, 6, 47, 35, 2, 14. </p>
+			  <p class="copy--small box">Print out the average of all 6 numbers. (You can use fixnum for this exercise, which will round down your answer.)</p></p>              
+			  <p class="copy--small box">Using the above values, have your program print out the highest number in the array.</p>
+			  
+              
+          </section>
+		  <section>
+              <pre><code  class="ruby">
+				my_array = [23, 6, 47, 35, 2, 14]
+				total = my_array[0] + my_array[1] + my_array[2] + my_array[3] + my_array[4] + my_array[5]
+				average = total/my_array.size
+				
+				print "The average is " + average.to_s
+				
+				print "The max is "+ my_array.max.to_s
+				
+				
+			  </code></pre>
+		  </section>
+		  
+		</section>
+		
         <!-- Blocks 1 30 minutes -->
         <section>
           <section>
@@ -95,15 +206,10 @@
               <h3>Boolean Expressions</h3>
               <p class="box copy--small">Code that compares values and returns True or False is called a <strong>Boolean expression</strong></p>
               <ul  class="list--tall copy--small">
-                  <li>Test for equality by using <code>==</code>. We can't use <code>=</code> because that is used for assignment</li>
+                  <li>Test for equality by using <code>==</code>. (<code>=</code> is used for assignment)</li>
                   <li>Test for greater than and less than using <code>&gt;</code> and <code>&lt;</code></li>
               </ul>
-          </section>
-
-          <section>
-              <h3>Boolean Expressions<br/><small>Cheat Sheet</small></h3>
-
-              <table class="box copy--small">
+               <table class="box copy--small">
                   <tr>
                       <td width="200"><code>a == b</code></td>
                       <td>a is equal to b</td>
@@ -195,7 +301,7 @@
           <section>
             <h3>Let's Develop It</h3>
             <p class="copy--small box--small">Take a few minutes and experiment with boolean expressions in IRB. You can start with the examples below.</p>
-            <pre><code class="ruby">
+            <pre  style="height: 200px; overflow:hidden" ><code class="ruby">
               true && false
               1 == 1 && 2 > 37
               "boop" == "bip" || 7 == 8
@@ -203,11 +309,13 @@
               89 > 88 || 89 < 90
               true || not(1 == 1 || 2 == 65)
             </code></pre>
+			<p class="copy--small box--small">Remember, the comparision methods are not giving us the strings <code>'true'</code> and <code>'false'</code>; they are giving us special objects <code>true</code> and <code>false</code>!</p>
+			
           </section>
 
           <section>
             <h3>Putting Booleans to Work</h3>
-            <p class="copy--small box--small">So, what's the value of knowing if a statement is true or false? Often, you'll use that to control whether a piece of code will execute or not.</p>
+            <p class="copy--small box--small">So, what's the value of knowing if a statement is true or false? Often, you'll use that to <strong>control</strong> whether a piece of code will execute or not.</p>
 
             <pre><code  class="ruby">
               user_guess = gets.chomp.to_i
@@ -231,7 +339,7 @@
               <h3>Conditionals</h3>
               <p class="copy--small box--small">When we want different code to execute depending on certain criteria, we use a <strong>conditional</strong></p>
               <p class="copy--small box--small">We achieve this using <code>if</code> statements and boolean expressions.</p>
-              <pre><code  class="ruby">
+              <pre  style="height: 120px; overflow:hidden"><code  class="ruby">
                 if x == 5
                   puts 'x is equal to 5'
                 end
@@ -241,13 +349,29 @@
           <section>
               <h3>Conditionals</h3>
               <p class="copy--small box--small">We often want a different block to execute if the statement is false. This can be accomplished using <code>else</code>.</p>
-              <pre><code  class="ruby">
+              <pre  style="height: 150px; overflow:hidden"><code  class="ruby">
                 if x == 5
                   puts 'x is equal to 5'
                 else
                   puts 'x is not equal to 5'
                 end
               </code></pre>
+          </section>
+		  
+		   <section>
+              <h3>Conditionals</h3>
+              <p class="copy--small box--small"></p>
+              <pre><code  class="ruby">
+					puts "I am a fortune-teller.  Tell me your name:"
+					name = gets.chomp
+					if name == "Chris"
+						puts "I see great things in your future."
+					else
+						puts "Your future is... Oh my!  Look at the time!"
+						puts "I really have to go, sorry!"
+					end
+              </code></pre>
+			  <p class="copy--small box--xsmall">Notice: indenting doesn't matter but it sure is <a href="https://github.com/styleguide/ruby">pretty</a>!</p>
           </section>
 
           <section>
@@ -272,14 +396,17 @@
           </section>
 
           <section>
-              <h3>Chained conditionals</h3>
-              <p class="copy--small box--small">Conditionals can also be <strong>chained</strong>.</p>
+              <h3>Branching: Chaining and Nesting conditionals</h3>
+              <p class="copy--xsmall box--small">You can extend conditionals to make more decisions or branches</p>
               <p class="copy--xsmall box--small">Chained conditionals use <code>elsif</code> to test if additional statements are true.<br/>The single <code>else</code> action will only happen if all preceding conditions are false.</p>
-
+        <p class="copy--xsmall box--small">Nested conditions are simply more conditions inside your conditional (yo dog...)</p>
               <p>For example:</p>
               <pre><code  class="ruby">
                 if x > 10
                   puts "x is greater than 10"
+                  if x < 20
+                    puts "but x is less than 20"
+                  end
                 elsif x <= 10 && x > 0
                   puts "x is a number between 1 and 10"
                 else
@@ -288,18 +415,18 @@
               </code></pre>
           </section>
 
+
           <!-- Let's develop it: 10 minutes  -->
           <section>
               <h3>Let's Develop It</h3>
-              <p class="copy--small box">Write a program in your text editor that uses conditionals and user input to allow the user to play an adventure game.</p>
-              <p class="copy--xsmall box"><code>gets.chomp</code> is the value of user input at the command line, with the trailing whitespace chomped off. To do math with it, convert it to an integer with the <code>to_i</code> method</p>
-              <pre style="height: 30px; overflow:hidden"><code>
-                input = gets.chomp.to_i
-              </code></pre>
-              <p class="copy--xsmall box">Run your program by calling it with Ruby from the command line.</p>
-              <pre style="height: 30px; overflow:hidden"><code>
-                $ ruby program_name.rb
-              </code></pre>
+			  <h4 ><a class="green"  href="https://en.wikipedia.org/wiki/Colossal_Cave_Adventure">Adventure (1975)</a></h4>
+              <p class="copy--small box">Write a program that uses conditionals and user input to allow the user to play a SHORT adventure game.</p>
+              <ul class="list--xtall box--small copy--small">
+				  <li class ="fragment">Tell the user the story/plot, i.e. you are being chased by a dragon</li>
+				  <li class ="fragment">Give the user some options, i.e. 1 - hide in a cave, 2 - climb the tallest tree</li>
+                  <li class ="fragment">Give the user the results based on their choice</li>
+              </ul>
+              
           </section>
 
           <section>
@@ -321,11 +448,12 @@
                           puts "That's not a valid option."
                         end
                         </code></pre></div>
-            <pre style="height: 60px; overflow:hidden;"><code class="ruby">
-            #command line
-            ruby adventure.rb
-            </code></pre>
+            
           </section>
+		  
+		  
+		  
+		  
         </section>
 
 
@@ -354,7 +482,7 @@
                         x = 10
 
                         while x > 0
-                          puts "Loop number #{x}"
+                          puts "Loop number "+ x.to_s
                           x = x - 1
                         end
                           </code></pre></div>
@@ -365,7 +493,7 @@
           <section>
               <h3>While loops</h3>
               <p class="copy--xsmall box">Consider the following example that uses a while loop to sing you a song.</p>
-              <pre><code  class="ruby">
+              <pre  style="height: 270px; overflow:hidden" ><code  class="ruby">
               num_bottles = 99
 
               while num_bottles > 0
@@ -377,19 +505,22 @@
               end
               </code></pre>
               <p class="copy--small box--small"><code>#{num_bottles}</code> is an example of <strong>string interpolation</strong></p>
+			  <p class="copy--xsmall box--small">this automatically calls <code>.to_s</code>, looks nicer, technically faster, but does the same thing as the <code>+</code></p>
           </section>
+		  
+	
 
           <!-- Let's Develop It - 10 minutes -->
           <section>
               <h3>Let's Develop It</h3>
               <ul class="copy--small list--xtall box--small">
-                  <li>Write a program that obtains user input like the last program</li>
+                  <li>Write a program that obtains user input and then prints out what the user chose.</li>
                   <li>This program should not exit until the user says it should (maybe by entering "quit"?)</li>
                   <li>Use a loop!</li>
                   <li>You can use the next slide as an example.</li>
               </ul>
           </section>
-
+	  
           <section>
               <h3>Let's Develop It: Example</h3>
               <div class="box--small"><pre><code>
@@ -397,10 +528,12 @@
                             loopy = true
 
                             while loopy == true
-                              puts "Are we having fun yet?"
-                              puts "Answer 'true' or 'false'."
+                              puts "Do you want to keep going around?"
+                              puts "1 - Yes lets keep going"
+                              puts "2 - Just keep swimming!"
+                              puts "0 - Get me out of this thing!"
                               user_input = gets.chomp
-                              if user_input == 'false'
+                              if user_input == '0'
                                 loopy = false
                               end
                             end
@@ -411,47 +544,74 @@
           <section>
               <h3>Each loops</h3>
               <p class="copy--small box--small">The most commonly used type of loop in Ruby is an each loop.</p>
-              <p class="copy--small box--small">It uses the <code>each</code> method to iterate over a collection of elements, doing work to each one.</p>
+              <p class="copy--small box--small">It uses the <code>each</code> method to iterate over a collection of elements (like arrays!), doing work to each one.</p>
 
-              <p class="copy--small box--small">First, we need a collection. Let's use a <strong>range</strong> of numbers to loop over.</p>
-              <pre><code  class="ruby">
-              (0..5).each do |i|
-                puts "Value of i is #{i}"
-              end
+              <p class="copy--small box--small">First, we need a collection. Let's use a <strong>array</strong> of numbers to loop over.</p>
+              <pre  style="height: 120px; overflow:hidden"><code  class="ruby" >
+				my_array = [23, 6, 47, 35, 2, 14]
+				my_array.each do |i|
+				  puts "Value of i is #{i}"
+				end
               </code></pre>
-          </section>
+			  </section>
 
           <section>
               <h3>Each loops</h3>
-              <pre style="height: 80px; overflow: hidden;"><code  class="ruby">
-              (0..5).each do |i|
-                puts "Value of i is #{i}"
-              end
+			  <p class="box--small">The loop has three parts:</p>
+        <pre  style="height: 120px; overflow:hidden"><code  class="ruby" >
+        my_array = [23, 6, 47, 35, 2, 14]
+        my_array.each do |i|
+          puts "Value of i is #{i}"
+        end
               </code></pre>
-              <p class="box--small">The loop has three parts:</p>
               <ul class="list--tall copy--small">
-                  <li>The collection that will be looped through, in this case a range- <code>(0..5)</code></li>
+                  <li>The collection that will be looped through, my_array</code></li>
                   <li>The name to give each element when the loop begins again - <code>i</code> - in the pipes <code>|i|</code></li>
                   <li>The code to execute with the element - the <code>puts</code> statement</li>
               </ul>
               <p class="box--small copy--xsmall">We will revisit the each loop when we have a better understanding of collections.</p>
           </section>
-        </section>
-
-        <section>
+        
+		
+		<section>
+              <h3>Let's (re-)Develop It</h3>
+              <p class="copy--small box">Set up an array to hold the following values, and in this order: </br>23, 6, 47, 35, 2, 14. </p>
+			  <p class="copy--small box">Print out the average of all 6 numbers. (You can use fixnum for this exercise, which will round down your answer.)</p>
+              <p class="copy--small box">Use a loop to do the math!</p>
+			  <p class="copy--small box">Using the above values, have your program print out the highest number in the array.</p>
+			  <p class="copy--small box">Bonus: use a loop and conditonals to get the array from the user</p>
+              
+          </section>
+		  <section>
+              <pre><code  class="ruby">
+				my_array = [23, 6, 47, 35, 2, 14]
+				total = 0
+				myarray.each do |i|
+					total += i
+				average = total/my_array.size
+				
+				print "The average is #{average}"
+				
+				print "The max is #{my_array.max}"
+				
+				
+			  </code></pre>
+		  </section>
+</section>
+			<section>
           <!-- Block 3 Collections 30 minutes -->
           <section>
               <h3>Collections</h3>
               <p class="copy--small box--small">There are three main types:</p>
               <ul class="list--tall copy--small">
-                <li>Ranges</li>
                 <li>Arrays</li>
+				<li>Ranges</li>                
                 <li>Hashes</li>
               </ul>
               <pre style="height: 130px; overflow: hidden;"><code  class="ruby">
-                new_range = (1..10)
-
                 new_array = [1, 3, 5]
+				 
+				new_range = new_range = (1..10)               
 
                 new_hash = {"dog" => "snoopy", "bird" => "woodstock"}
               </code></pre>
@@ -463,6 +623,7 @@
                         inclusive_range = (1..3)  # contains 1, 2, 3
                         exclusive_range = (1...3) # contains 1, 2
                         letter_range = ('a'..'e') # contains 'a', 'b', 'c', 'd', 'e'
+                        word_range = ('bar'..'bat').to_a #contains 'bar', 'bas, 'bat'
                         </code></pre></div>
             <p class="copy--small box--small">Ranges are simply the range of values between<br/>the given first and last elements.</p>
             <p class="copy--small box--small"><strong>Inclusive</strong> ranges have two dots, and include the last element.</p>
@@ -475,96 +636,66 @@
             <h3>Ranges</h3>
             <p class="copy--small box--small">Try out these range methods in IRB.</p>
             <pre><code>
-            (1..99).max
-            ('b'...'z').include?('j')
+            (1..99).max 					
             (890..902).begin
             (890..902).first(4)
             (890..902).last(3)
             (890..902).end
             (28..22).min
-
-            ('a'...'g').each do |l|
-              puts "#{l} is a pretty good letter"
-            end
-
+            
             (22..28).to_a
+			
+            ('b'...'z').include?('j')
+            new_array[1..2] # returns the second and third elements
             </code></pre>
             <p class="copy--xsmall box--small">Learn more about ranges <a href="http://www.ruby-doc.org/core-2.1.1/Range.html" alt="Ruby Doc">here</a>.</p>
           </section>
+			
+		  <section>
+			<h3>Using Ranges as Conditionals</h3>
+			<p class="copy--small box--small">The <code>my_range===value</code> does the same as <code>my_range.to_a.include?(value)</code></p>
+			<pre><code  class="ruby">
+			if ((1..10) === 5)
+			  puts "5 lies in (1..10)"
+			end
 
+			if (('a'..'j') === 'c')
+			  puts "c lies in ('a'..'j')"
+			end
+
+			if (('a'..'j') === 'z')
+			  puts "z lies in ('a'..'j')"
+			end
+            </code></pre>
+		  </section>
+          
+		   <section>
+			<h3>Looping through Ranges</h3>
+			<p class="copy--small box--small">Use the <code>each</code> loop to step through or iterate through ranges</p>
+			<pre  style="height: 120px; overflow:hidden" ><code  class="ruby">
+			# use the range operator to do 0 to 5 counts
+			(0..5).each do |i|
+			  puts "Loop number #{i}"
+			end
+
+            </code></pre>
+		  </section>
+		   <!-- Let's develop it: 10 minutes -->
           <section>
-              <h3>Arrays</h3>
-              <p class="copy--small box--small">Arrays have square brackets <code>[]</code> and can be filled with any type of object: integers, floats, strings, even other arrays or hashes.</p>
-              <pre><code  class="ruby">
-              new_array = [1, 3, 5, 89, 212, 7, -100]
-              arr = ["wow", "woooo", "zowie"]
-              array = Array.new #will have no elements inside it initially
-              varied_array = ["one", 2, "THREE", 0.4, ["five", 6]]
+            <h3>Let's Develop It</h3>
 
-              # methods to get information about an array
-              new_array.length
-              new_array.count
-              arr.include?("yee ha")
-              </code></pre>
-              <p class="copy--xsmall box--small">Arrays are a great way to keep track of information that changes frequently.</p>
+            <p class="copy--small box">Write a program that prints out every number<br/>between 1 and 1000 that is divisible by 7.</p>
+			<p class="copy--small box">Print out all the prime numbers <br/>between 1 and 1000.</p>
+            <p class="copy--xsmall box--small">Hint: the modulus operator, <code>%</code>, will be helpful.</p>
           </section>
+		  </section>
 
-          <section>
-              <h3>Accessing Elements in an Arrays</h3>
-              <p class="copy--small box--small">Arrays are <strong>ordered</strong> and are <strong>integer-indexed</strong>, starting at 0. </p>
-              <p class="copy--small box--small">Elements can be accessed by their position.</p>
-
-              <pre><code  class="ruby">
-              new_array = [1, 3, 5, 89, 212, 7, -100]
-              arr = ["wow", "woooo", "zowie"]
-
-              new_array[0]    # returns the zeroth element
-              arr[2]          # returns the third element
-              arr[-1]         # returns the last (1st from the end) element
-              new_array.last  # returns the last element
-              new_array[1..2] # returns the second and third elements
-              arr.first       # returns the first element
-              </code></pre>
-          </section>
-
-          <section>
-              <h3>Adding &amp; Deleting From Arrays</h3>
-              <p class="copy--small box--small">Adding and removing items to an array can be done in a variety of ways. These are the most common.</p>
-              <pre><code  class="ruby">
-              arr = ["wow", "woooo", "zowie"]
-
-              #add
-              arr.push("hot diggity") # adds argument as last element
-              arr << "yikes"          # adds argument as last element
-
-              #remove
-              arr.delete("wow")       # deletes the element that matches argument
-              arr.pop                 # removes and returns the last element
-              </code></pre>
-          </section>
-
-          <section>
-              <h3>More Array Methods</h3>
-              <p class="copy--small box--small">Arrays are used a lot in Ruby.<br/>There are a lot of cool methods available for them. </p>
-              <pre><code  class="ruby">
-              arr = ["dog", "cat", "turtle", "parakeet", "ferret"]
-
-              arr.index("dog")  # returns the index of the element that matches argument
-              arr.join          # returns a string made up of all the elements
-              arr.clear         # removes all elements from the array
-              arr.reverse       # returns new array with same elements, reversed
-              arr.shuffle       # returns new array with same elements, shuffled
-              arr.uniq          # returns a new array with only unique elements
-              arr.size          # returns the number of elements in the array
-              arr.empty?        # returns a boolean
-              </code></pre>
-              <p class="copy--xsmall box--small">Learn more about arrays <a href="http://www.ruby-doc.org/core-2.1.0/Array.html" alt="ruby documentation - array class">here</a>.</p>
-          </section>
-
+		  
           <!-- minutes-->
+		  <section>
           <section>
             <h3>Hashes</h3>
-            <p class="copy--small box--small">Hashes have curly braces <code>{}</code> and "hash rockets" <code>=&gt;</code> and can be filled with any data type: integers, floats, strings, even arrays and hashes. </p>
+            <p class="copy--small box--small">Hashes have curly braces <code>{}</code> and "hash rockets" <code>=&gt;</code> and can be filled with any data type: fixnum, strings, even arrays and hashes. </p>
             <pre><code  class="ruby">
             grades_hash = { "Jane Doe" => 10, "Jim Doe" => 6, "Jan Doe" => 8}
             new_hash = { 1 => "a", "d" => 12, "f" => 35 }
@@ -594,7 +725,7 @@
             grades_hash.first         # returns first key/value pair... probably
             </code></pre>
           </section>
-
+	
           <section>
             <h3>Adding &amp; Removing<br/><small>from Hashes</small></h3>
             <pre><code  class="ruby">
@@ -625,45 +756,7 @@
               <p class="copy--xsmall box--small">Learn more about hashes <a href="http://www.ruby-doc.org/core-2.1.1/Hash.html" alt="Ruby Docs">here</a>.</p>
           </section>
 
-          <!-- minutes -->
-          <section>
-            <h3>Enumerable</h3>
-            <p class="copy--small box"><strong>Arrays</strong> and <strong>Hashes</strong> are both members of the <strong>Enumerable</strong> class.</p>
-            <p  class="copy--small box--small"> There are a lot of cool methods available for Enumerable,<br/>including <code>each</code>. </p>
-
-            <!-- <p>Learn more about the methods available to Enumerable <a href="http://www.ruby-doc.org/core-2.1.1/Enumerable.html" alt="Ruby Docs">here</a>.</p> -->
-          </section>
-
-          <section>
-            <h3>.each with Ranges</h3>
-            <p class="copy--small box--small">This is the simplest!</p>
-            <pre><code class="ruby">
-            (3..8).each do |n|
-              puts n * 4
-            end
-            </code></pre>
-          </section>
-
-          <section>
-            <h3>.each with Arrays</h3>
-            <p class="copy--small box--small">Can be simple or more complex, depending on the array.</p>
-            <pre><code class="ruby">
-            pets_array = ["dog", "cat", "turtle", "parakeet", "ferret"]
-
-            pets_array.each do |p|
-              puts "I like #{p}s!!"
-            end
-
-
-            deep_array = [["mountain", "desert"], ["ocean", "sky"]]
-
-            deep_array.each do |p|
-              puts "I like #{p.first}s!!"  # each element is also an array
-            end
-            </code></pre>
-          </section>
-
-          <section>
+           <section>
             <h3>.each with Hashes</h3>
             <p class="copy--small box--small">Each element has a key and value that needs to be dealt with.</p>
             <pre><code class="ruby">
@@ -675,13 +768,7 @@
             </code></pre>
           </section>
 
-          <!-- Let's develop it: 10 minutes -->
-          <section>
-            <h3>Let's Develop It</h3>
-
-            <p class="copy--small box">Write a program that prints out every number<br/>between 1 and 1000 that is divisible by 7.</p>
-            <p class="copy--small box--small">Hint: the modulo operator, <code>%</code>, will be helpful.</p>
-          </section>
+        
 
           <!-- we found that there wasn't enough time in this class for this content, but it may be useful as homework or additional material for advanced students.
 
@@ -742,17 +829,55 @@
 
           <section>
               <h3>Homework</h3>
-              <p class="box copy--small left-align"><strong>Practice:</strong> Find two interesting methods for Enumerable (via <a href="http://www.ruby-doc.org/core-2.1.1/Enumerable.html" alt="Ruby Docs">Ruby Docs</a>) and write a little program that uses them for arrays or hashes. Do any one of the exercises at the end of <a href="http://pine.fm/LearnToProgram/?Chapter=06" alt="Chp 6 of Learn to Program">Chapter 6</a> of Learn to Program.</p>
-              <p class="box copy--small left-align"><strong>Prep:</strong> Read <a href="http://pine.fm/LearnToProgram/?Chapter=08" alt="Chp 8 of Learn to Program">Chapter 8</a> of Learn To Program- don't try to do the exercises at the end yet, though.</p>
-          </section>
+			  
+	          <p class="copy--small box">Good news, you are now the owner of a pet shop! Bad news, the previous owner didn't keep track of their pets. Let's write a program to keep track of all the animals!</p>
+              <p class="copy--xsmall box">Use a hash to keep track of your animals and create a menu to add, remove, and print from your hash.
+			  <pre><code>
+				$ What would you like to do? 
+				$ 1. add animal 
+				$ 2. remove animal 
+				$ 3. show all animals
+				>>1
+				$ Enter the name of the animal to add:
+				>> cat
+				$ You already have 1 cat(s)! Now you have 2 cat(s)! #updates the hash value
+				...
+              </code></pre>
+            </section>
+			
+			<section>
+			<h3>Homework, cont.</h3>
+              <p class="copy--small box">Write a Deaf Grandma program. Whatever you say to grandma (whatever you type in), she should respond with <code>HUH?!  SPEAK UP, HONEY!</code>, unless you shout it (type in all capitals). If you shout, she can hear you (or at least she thinks so) and yells back, <code>NO, NOT SINCE 1938!</code> To make your program really believable, have grandma shout a different year each time; maybe any year at random between 1930 and 1950. (This part is optional, and would be much easier if you read the section on Ruby's random number generator at the end of the this <a href="https://pine.fm/LearnToProgram/chap_05.html">methods</a> chapter.) You can't stop talking to grandma until you shout <code>BYE</code>.</p>
+              <p class="copy--xsmall box">Hint: Don't forget about <code>chomp!</code> <code>'BYE'</code> with an Enter is not the same as <code>'BYE'</code> without one!</p>
+			  <p class="copy--xsmall box">Hint 2: Try to think about what parts of your program should happen over and over again. All of those should be in your <code>while</code> loop.
+			  
+            </section>
+			
+			<section>
+			<h3>Homework, BONUS.</h3>
+              <p class="copy--small box">Extend your Deaf Grandma program: What if grandma doesn't want you to leave? When you shout <code>BYE</code>, she could pretend not to hear you. Change your previous program so that you have to shout <code>'BYE'</code> three times in a row. Make sure to test your program: if you shout <code>'BYE'</code> three times, but not in a row, you should still be talking to grandma.</p>
+			
+            </section>
+			
+		</section>
 
           <section>
-            <img src="images/gdi_logo_badge.png" class="img--bare" height="450px" />
-            <div class="box--small">
-              <h3><span class="green">Intro to Ruby</span></h3>
-              <h4><span class="blue">Class 2</span></h4>
-            </div>
-          </section>
+                <img src="images/gdi-dayton-logo.png" class="img--bare" height="300px" />
+                <div class="box--small">
+                    <h3 class="event__title">Intro to Programming in Ruby</h3>
+                    <p class=""><small>@gdidayton &nbsp; | &nbsp; #GDIDAY3</small></p>
+                    <hr>
+                    <p><small>We are done with class 2!</small></p>
+                    <p><small>We have done a lot, I know you have questions so ask them!</small></p>
+                </div>
+            <p class="copy--small box--small">
+              <a href="setup.html">Setup</a> &nbsp; | &nbsp;
+              <a href="class1.html">Class 1</a> &nbsp; | &nbsp;
+              <a href="class2.html">Class 2</a> &nbsp; | &nbsp;
+              <a href="class3.html">Class 3</a> &nbsp; | &nbsp;
+              <a href="class4.html">Class 4</a>
+            </p>
+        </section>
         </section>
       </div>
 
