@@ -59,8 +59,11 @@
             <p class="box ">How was last week's homework?</p>
             <p class="box copy--small">Do you have any questions or concepts that you'd like to discuss?</p>
             <h6 class="grey">The Homework was:</h6>
-            <p class="box--small copy--xsmall left-align"><strong>Practice:</strong> Find two interesting methods for Enumerable (via <a href="http://www.ruby-doc.org/core-2.1.1/Enumerable.html" alt="Ruby Docs">Ruby Docs</a>) and write a little program that uses them for arrays or hashes. Do any one of the exercises at the end of <a href="http://pine.fm/LearnToProgram/?Chapter=06" alt="Chp 6 of Learn to Program">Chapter 6</a> of Learn to Program.</p>
-            <p class="box--small copy--xsmall left-align"><strong>Prep:</strong> Read <a href="http://pine.fm/LearnToProgram/?Chapter=08" alt="Chp 8 of Learn to Program">Chapter 8</a> of Learn To Program- don't try to do the exercises at the end yet, though.</p>
+            <ul>
+        <li>Ranges problem</li>
+        <li>Pet shop</li>
+        <li>Bye Grandma</li>
+      </ul>
           </section>
 
           <section>
@@ -89,7 +92,7 @@
               </code></pre>
           </section>
 
-          <section>
+          <!--section>
             <h3>HW: leap.rb</h3>
             <pre><code contenteditable class="ruby">
             puts "Enter a starting year in the format YYYY"
@@ -109,14 +112,15 @@
               end
             end
             </code></pre>
-          </section>
+          </section-->
 
           <section>
             <h3>Review</h3>
             <ul class="box--small list--xtall">
               <li class="fragment">Conditions - <code>if</code>, <code>elsif</code>, <code>else</code></li>
               <li class="fragment">Loops - <code>while</code>, <code>for</code></li>
-              <li class="fragment">Arrays - <code>[1,2,3]</code></li>
+        <li class="fragment">Arrays - <code>[1,2,3]</code></li>
+              <li class="fragment">Ranges - <code>[1..3]</code></li>
               <li class="fragment">Hashes - <code>{"one" => 1, "two" => 2}</code></li>
             </ul>
           </section>
@@ -144,11 +148,14 @@
 
                         "fred".capitalize
                         => "Fred"
+                        
+                        "fred".class
+                        => String
                         </code></pre></div>
             <p class="box--small copy--small fragment">If you have code you want to reuse or organize, methods will help.</p>
           </section>
 
-          <section>
+          <!--section>
             <h3>Let's Develop It!</h3>
             <p class="box--small copy--small">Find the methods available on <a href="http://www.ruby-doc.org/core-2.1.0/String.html">String</a> and <a href="http://www.ruby-doc.org/core-2.1.0/Integer.html">Integer</a></p>
             <p class="box--small copy--small">Do they have any similar methods?</p>
@@ -165,11 +172,11 @@
             -1.next
             => 0
               </code></pre>
-          </section>
+          </section-->
 
           <section>
-            <h3>Write a Method</h3>
-            <p class="copy--small box--small">Let's write a method together...</p>
+            <h3>Writing A Method</h3>
+            <p class="copy--small box--small">Just like with loops and conditionals there is a term used to declare a method, <code>def</code> and <code>end</code></p>
             <pre style="height: 80px; overflow: hidden"><code contenteditable class="ruby">
             def subtract(x, y)
               x - y
@@ -182,19 +189,22 @@
             <p class="copy--xsmall box--small"><code>x - y</code> is also the return value</p>
           </section>
 
-          <section>
-            <h3>Let's Develop It!</h3>
-            <p class="copy--small box--small">Let's write a method that takes in a number and tells us if it is even.</p>
-            <p class="copy--small box--small"><strong>Hint:</strong> if <code>number % 2 == 0</code>, then it is even</p>
+      <section>
+            <h3>Calling A Method</h3>
+            <p class="copy--small box--small">Arguments are <i>passed</i><br/>and parameters are <i>declared</i>.</p>
+            <p class="copy--small box--small">Note that the variable names don't have to match!</p>
+            <p class="copy--small box--small">In this code, <code>5</code> is an argument and <code>x</code> is a parameter</p>
             <pre><code contenteditable class="ruby">
-            def method_name(parameter)
-              # method implementation
-            end
+              def subtract(x,y) #parameters
+                x - y
+              end
+
+              subtract(5, 2) #arguments
             </code></pre>
           </section>
-
-          <section>
-            <h3>Method Return Value</h3>
+      
+      <section>
+            <h3>Returning Values</h3>
             <p class="copy--small box--small">Every Ruby method returns something.</p>
             <p class="copy--small box--small">Usually, it's the last statement in the method.</p>
             <p class="copy--small box--small">It could be the value sent to <strong>return</strong> if that came first.</p>
@@ -216,23 +226,48 @@
             puts return_value
               </code></pre>
           </section>
+      
+      <section>
+      <h3>Local Variables</h3>
+      <p class="copy--small box--small">A local variable is a variable whose scope ends (goes out of context) when the function returns</p>
+      <pre style="height: 180px; overflow: hidden" ><code contenteditable class="ruby">
+      def doubleThis num
+        numTimes2 = num*2
+        puts num.to_s+' doubled is '+numTimes2.to_s
+      end
 
+      doubleThis 44
+      puts numTimes2.to_s     
+      </code></pre>
+      <pre style="height: 80px; overflow: hidden"><code contenteditable class="ruby">
+      44 doubled is 88
+      # <NameError: undefined local variable or method `numTimes2' for 
+      # <StringIO:0x007fb08b932f40>>
+      </code>
+      </pre>
+      
+      </section>
+      
           <section>
-            <h3>Arguments vs. Parameters</h3>
-            <p class="copy--small box--small">Technically speaking, arguments are <i>passed</i><br/>and parameters are <i>declared</i>.</p>
-            <p class="copy--small box--small">Note that the variable names don't have to match!</p>
-            <p class="copy--small box--small">In this code, <code>5</code> is an argument and <code>x</code> is a parameter</p>
-            <pre><code contenteditable class="ruby">
-              def subtract(x,y)
-                x - y
-              end
-
-              subtract(5, 2)
+            <h3>Let's Develop It!</h3>
+            <p class="copy--small box--small">Let's write a method takes in a String <code>question</code> and returns an answer.</p>
+            <pre  style="height: 80px; overflow:hidden" ><code contenteditable class="ruby">
+            def method_name(parameter)
+              # method implementation
+            end
             </code></pre>
-          </section>
-
+          </section>       
+      
+    <section>
+    <h3>Keeping Track of Program Flow</h3>
+    
+    </section>
+      
+      
           <section>
             <h3>Splat Arguments</h3>
+      <p class="copy--small box--small">Only in 1.9 or newer</p>
+      <p class="copy--small box--small">The Splat or asterisk operator will capture however many arguments you pass into <code>greet</code>.</p>
             <pre><code contenteditable class="ruby">
             def greet(greeting, *names)
               names.each do |name|
@@ -245,10 +280,13 @@
             Hello, Bob!
             Hello, Charlie!
               </code></pre>
+      <p class="copy--small box--small">For more explaination check out this <a href="https://endofline.wordpress.com/2011/01/21/the-strange-ruby-splat/">link</a></p>
           </section>
 
           <section>
             <h3>Default Values</h3>
+      <p class="copy--small box--small"> If using 1.9 or lower, these have to be the last arguments in your list. </p>
+      <p class="copy--small box--small"> Default values are used if the caller doesn't pass them explicitly. </p>
             <pre><code contenteditable class="ruby">
             def eat(food = "chicken")
               puts "Yum, #{food}!"
@@ -263,7 +301,7 @@
           </section>
 
           <section>
-            <h3>Default Hash Parameter</h3>
+            <h3>Hashes as Parameter</h3>
             <pre><code contenteditable class="ruby">
             def add_to_x_and_y(amount, vals)
               x = vals[:x]
@@ -280,7 +318,7 @@
             <p class="copy--small box--small">To pass variable parameters, or to pass named parameters,<br/>you can use an <strong>options hash</strong>.</p>
             <pre><code contenteditable class="ruby">
             def bake(name, options = {})
-              flour = options[:flour] || "rye"
+              flour = options[:flour] || "rye" #this is like setting a default value
               creamer = options[:creamer] || "cream"
               puts "baking a nice #{flour} loaf with #{creamer}"
             end
@@ -292,29 +330,17 @@
           </section>
 
           <section>
-            <h3>Methods &amp; Variables</h3>
-            <p class="copy--small box--small"><strong>Local vars</strong> are only available in the methods where they were defined.</p>
-            <pre><code contenteditable class="ruby">
-            # Let's extract the length of the padded string into
-            # a local variable
-            def message(our_string)
-              length = 80
-              puts our_string.center(length, "-")
-            end
-
-            def different_message(some_string)
-              puts our_string.center(length, "=")
-            end
-            # Error! 'our_string' and 'length' are not defined inside this method
-              </code></pre>
+            <h3>Let's Develop It!</h3>
+            <p class="copy--small box--small">Lets write a method called <code>englishNumber</code>. It will take a number, like 22, and return the english version of it (in this case, the string 'twenty-two'). For now, let's have it only work on integers from 0 to 100.</p>
           </section>
+
         </section>
 
         <!-- Objects -->
         <section>
           <section>
             <h3>Objects</h3>
-            <p class="box ">An <strong>Object</strong> is the building block of a program.</p>
+            <p class="box ">An <strong>Object</strong> is an instance of a <strong>Class</strong></p>
             <p class="box ">Objects <strong>do things</strong> and have <strong>properties</strong>.</p>
           </section>
 
@@ -366,6 +392,7 @@
 
           <section>
             <h3>Instance Variables</h3>
+            <p class="copy--small box--small">Represent object state</p>
             <p class="copy--small box--small">Represent object state</p>
             <p class="copy--small box--small">Names start with an <code>@</code></p>
             <p class="copy--small box--small">Only visible inside the object</p>
@@ -451,17 +478,35 @@
 
           <section>
             <h3>Homework</h3>
-            <p class="left-align copy--small box"><strong>Practice:</strong> Do some of the exercises at the end of <a href="http://pine.fm/LearnToProgram/?Chapter=08" alt="Chp 8 of Learn to Program">Chapter 8</a> of Learn to Program.</p>
-            <p class="left-align copy--small box"><strong>Prep:</strong> Read <a href="http://pine.fm/LearnToProgram/?Chapter=09" alt="Chp 9 of Learn to Program">Chapter 9</a> of Learn To Program- don't try to do the exercises at the end yet, though.</p>
+            <p class="left-align copy--small box">Use the <code>ask</code> method to enhance your text-based Adventure game.</p>
+            <p class="left-align copy--small box">How many other methods can you make for actions in your game? Be prepared to share!</p> 
           </section>
 
           <section>
-            <img src="images/gdi_logo_badge.png" class="img--bare" height="450px" />
-            <div class="box--small">
-              <h3><span class="green">Intro to Ruby</span></h3>
-              <h4><span class="blue">Class 3</span></h4>
-            </div>
+            <h3>Homework</h3>
+            <p class="left-align copy--small box">Expand upon englishNumber. First, put in thousands. So it should return 'one thousand' instead of 'ten hundred' and 'ten thousand' instead of 'one hundred hundred'.</p>
+            <p class="left-align copy--small box">Expand upon englishNumber some more. Now put in millions, so you get 'one million' instead of 'one thousand thousand'. </p>
+            <p class="left-align copy--small box">Then try adding billions and trillions. How high can you go?</p>
+            <p class="left-align copy--small box">How about weddingNumber? It should work almost the same as englishNumber, except that it should insert the word "and" all over the place, returning things like 'nineteen hundred and seventy and two', or however wedding invitations are supposed to look. I'd give you more examples, but I don't fully understand it myself. You might need to contact a wedding coordinator to help you.</p>
           </section>
+
+          <section>
+                <img src="images/gdi-dayton-logo.png" class="img--bare" height="300px" />
+                <div class="box--small">
+                    <h3 class="event__title">Intro to Programming in Ruby</h3>
+                    <p class=""><small>@gdidayton &nbsp; | &nbsp; #GDIDAY3</small></p>
+                    <hr>
+                    <p><small>We are done with class 3!</small></p>
+                    <p><small>We have done a lot, I know you have questions so ask them!</small></p>
+                </div>
+            <p class="copy--small box--small">
+              <a href="setup.html">Setup</a> &nbsp; | &nbsp;
+              <a href="class1.html">Class 1</a> &nbsp; | &nbsp;
+              <a href="class2.html">Class 2</a> &nbsp; | &nbsp;
+              <a href="class3.html">Class 3</a> &nbsp; | &nbsp;
+              <a href="class4.html">Class 4</a>
+            </p>
+        </section>
         </section>
       </div>
 
